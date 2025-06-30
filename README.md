@@ -1,1 +1,9 @@
-# De-Novo-fuel-discovery
+# De Novo fuel composition discovery: an AI-assisted framework for exploring sustainable aviation fuels
+
+![image](https://github.com/user-attachments/assets/f7a86bbc-c154-456a-a38c-5f89e89432ee)
+
+**De Novo fuel composition discovery framework.**  AI-assisted framework for exploring SAF blends. The schematic diagram depicts the De Novo fuel design framework for investigating novel SAF blends. It encompasses data curation, establishes a compositional mapping (predictive modelling), and virtual fuel screening.
+
+# Abstract
+
+The aviation sector’s dependence on liquid fossil fuels renders it one of the most challenging industries to reach net zero. Sustainable aviation fuels (SAF) present a viable solution; however, their implementation is hindered by elevated production costs and the absence of systematic design tools for completely drop-in fuels. A De Novo fuel discovery AI framework is established to design SAFs that fulfil the aviation industry's energy density requirements. The design methodology employs a deep kernel learning model to create a compositional mapping that correlates chemical structures with the physicochemical properties of fuels, such as density, heat of combustion, freezing point, and sooting tendency. The AI-driven compositional mapping is incorporated into a virtual high-throughput screening process to investigate novel SAF blends that either replicate or exceed the performance of conventional fuels, including JP-8 Petroleum, Oil, and Lubricants Standardised Fuel (POSF) 10264 and Jet A POSF 10325, while concurrently minimising particulate emissions. The findings emphasise the potential of AI to accelerate the pursuit of a 100% drop-in SAF, facilitating the development of cleaner fuels compatible with existing infrastructure and advancing aviation towards net-zero emissions.
