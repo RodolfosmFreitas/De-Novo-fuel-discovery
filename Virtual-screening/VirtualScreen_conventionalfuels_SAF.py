@@ -82,12 +82,12 @@ def obj_fun(x, phi, y_true, alpha):
     loss = (y_true - mu)^2 + beta * (sigma - |y_true - mu|)^2 + alpha * |omega|
     '''
     beta = 1e-2
-    var_reg = beta*np.mean(np.square(sigma.detach().cpu().numpy()[0][0] - np.absolute(mu.detach().cpu().numpy()[0][0] - y_true)))
+    var_reg = beta*np.mean(np.square(sigma.detach().cpu().numpy()[0] - np.absolute(mu.detach().cpu().numpy()[0] - y_true)))
     # Lasso
     l1_reg = np.linalg.norm(x, 1)
     
     
-    loss = np.mean(np.square(y_true - mu.detach().cpu().numpy()[0][0])) + var_reg +  alpha * l1_reg 
+    loss = np.mean(np.square(y_true - mu.detach().cpu().numpy()[0])) + var_reg +  alpha * l1_reg 
     
     return loss
 
@@ -179,10 +179,11 @@ if __name__ == "__main__":
     
     # target density fuel
     '''
-    Screening SAF blends based on density [780, 790, 800]
+    Screening SAF blends for conventional fuels - Jet-A and JP-8
     '''
-    fuel_target = 780
-    fuel = 	'SAF-{}'.format(fuel_target)
+    jets = 'Jet-A'
+    fuel_target = np.array([803, 43.1])
+    fuel = 	'SAF-{}'.format(jets)
     alpha = [0.1, 0.5, 1.0]
     K = 1000
         
