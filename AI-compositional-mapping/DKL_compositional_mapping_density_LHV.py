@@ -48,7 +48,7 @@ parser = argparse.ArgumentParser(description='Deep Kernel learning + Molecular r
 
 parser.add_argument('--data-dir', type=str, default="../data", help='data directory')
 parser.add_argument('--lr', type=float, default=1e-3, help='initial learnign rate')
-parser.add_argument('--n-iterations', type=int, default=300, help='number of iterations to train (default: 1000)')
+parser.add_argument('--n-iterations', type=int, default=100, help='number of iterations to train (default: 1000)')
 parser.add_argument('--train-size', type=float, default=0.80, help='amount of the data used to train')
 parser.add_argument('--log-interval', type=int, default=10, help='how many epochs to wait before logging training status')
 
