@@ -43,9 +43,11 @@ def predict_TF(test_x):
         # Test points are regularly spaced along [0,1]
         Y_pred = likelihood(model(test_x))
 
+    # Sampling from the posterior
+    f_samples = Y_pred.sample(sample_shape=torch.Size([1000])).detach().cpu().numpy() * std_TF + mu_TF 
     
-    mu_pred = Y_pred.mean * std_TF + mu_TF 
-    var_pred = torch.abs(Y_pred.variance * std_TF + mu_TF)
+    mu_pred = f_samples.mean(0) 
+    var_pred = Y_pred.var(0)
     sigma_pred = torch.sqrt(var_pred)
     return mu_pred.detach().cpu().numpy(), sigma_pred.detach().cpu().numpy()
 
