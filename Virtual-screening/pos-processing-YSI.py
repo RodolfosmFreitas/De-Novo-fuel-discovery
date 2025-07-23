@@ -48,6 +48,7 @@ def predict_YSI(test_x):
         # Test points are regularly spaced along [0,1]
         Y_pred = likelihood(model(test_x))
         
+    
     mu_pred = Y_pred.mean * std_YSI + mu_YSI 
     var_pred = Y_pred.variance * std_YSI + mu_YSI
     sigma_pred = torch.sqrt(var_pred)
