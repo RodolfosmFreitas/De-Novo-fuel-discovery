@@ -48,8 +48,8 @@ def predict_TF(test_x):
     
     mu_pred = f_samples.mean(0) 
     var_pred = Y_pred.var(0)
-    sigma_pred = torch.sqrt(var_pred)
-    return mu_pred.detach().cpu().numpy(), sigma_pred.detach().cpu().numpy()
+    sigma_pred = np.sqrt(var_pred)
+    return mu_pred, sigma_pred
 
 
 def harmonic_mixing_rule(w, X):
