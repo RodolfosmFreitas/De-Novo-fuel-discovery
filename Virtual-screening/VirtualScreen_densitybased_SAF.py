@@ -51,9 +51,12 @@ def predict(test_x):
     with torch.no_grad(), gpytorch.settings.fast_pred_var():
         # Test points are regularly spaced along [0,1]
         Y_pred = likelihood(model(test_x))
+
+    # Sampling from the posterior
+    f_samples = Y_pred.sample(sample_shape=torch.Size([1000])).detach().cpu().numpy() * std + mu
     
-    mu_pred = Y_pred.mean * std + mu 
-    var_pred = Y_pred.variance * std + mu
+    mu_pred = f_samples.mean(0) 
+    var_pred = Y_pred.var(0)
     sigma_pred = torch.sqrt(var_pred)
     
     return mu_pred, sigma_pred
