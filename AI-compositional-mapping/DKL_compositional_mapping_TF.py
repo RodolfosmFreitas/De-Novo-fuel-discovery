@@ -304,9 +304,12 @@ Y_train = np.concatenate((Y_train_pure, Y_train_blends), axis=0)
 X_train = torch.Tensor(X_train).to(device) 
 Y_pred_train = predict(X_train) 
     
+# Sampling from the posterior
+f_samples_test = Y_pred_train.sample(sample_shape=torch.Size([1000])).detach().cpu().numpy() * std + mu
+    
 # Compute mean and variance of the prediction as function of x
-mu_pred_train = Y_pred_train.mean.detach().cpu().numpy() * std + mu     
-var_pred_train = np.abs(Y_pred_train.variance.detach().cpu().numpy() * std + mu)   
+mu_pred_test = f_samples_train.mean(0)    
+var_pred_test = f_samples_train.var(0)    
 
 # "Diagnostics: How do you know if the fit is good?"
 
@@ -325,9 +328,12 @@ Y_test = np.concatenate((Y_test_pure, Y_test_blends), axis=0)
 X_test = torch.Tensor(X_test).to(device)
 Y_pred_test = predict(X_test)
 
+# Sampling from the posterior
+f_samples_test = Y_pred_test.sample(sample_shape=torch.Size([1000])).detach().cpu().numpy() * std + mu
+    
 # Compute mean and variance of the prediction as function of x
-mu_pred_test = Y_pred_test.mean.detach().cpu().numpy() * std + mu   
-var_pred_test = np.abs(Y_pred_test.variance.detach().cpu().numpy() * std + mu)    
+mu_pred_test = f_samples_test.mean(0)    
+var_pred_test = f_samples_test.var(0)   
 
 # "Diagnostics: How do you know if the fit is good?"
 
