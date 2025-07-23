@@ -334,11 +334,11 @@ X_test = torch.Tensor(X_test).to(device)
 Y_pred_test = predict(X_test)
 
 # Sampling from the posterior
-f_samples_test = Y_pred_train.sample(sample_shape=torch.Size([1000])).detach().cpu().numpy() * std + mu
+f_samples_test = Y_pred_test.sample(sample_shape=torch.Size([1000])).detach().cpu().numpy() * std + mu
     
 # Compute mean and variance of the prediction as function of x
-mu_pred_test = f_samples_train.mean(0)    
-var_pred_test = f_samples_train.var(0)
+mu_pred_test = f_samples_test.mean(0)    
+var_pred_test = f_samples_test.var(0)
 
 # "Diagnostics: How do you know if the fit is good?"
 
