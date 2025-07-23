@@ -38,8 +38,7 @@ parser.add_argument('--kernel', type=str, default='RBF', help='Covariance model 
 parser.add_argument('--num_mixtures', type=int, default=2, help='number of mixtures in Spectral Mixture model')
 args = parser.parse_args()
     
-    
-    
+
 def predict_YSI(test_x):
     model.eval()
     likelihood.eval()
@@ -47,13 +46,14 @@ def predict_YSI(test_x):
     with torch.no_grad(), gpytorch.settings.fast_pred_var():
         # Test points are regularly spaced along [0,1]
         Y_pred = likelihood(model(test_x))
-        
-    
-    mu_pred = Y_pred.mean * std_YSI + mu_YSI 
-    var_pred = Y_pred.variance * std_YSI + mu_YSI
-    sigma_pred = torch.sqrt(var_pred)
-    return mu_pred.detach().cpu().numpy(), sigma_pred.detach().cpu().numpy()
 
+    # Sampling from the posterior
+    f_samples = Y_pred.sample(sample_shape=torch.Size([1000])).detach().cpu().numpy() * std_YSI + mu_YSI 
+    
+    mu_pred = f_samples.mean(0) 
+    var_pred = Y_pred.var(0)
+    sigma_pred = np.sqrt(var_pred)
+    return mu_pred, sigma_pred
 
 def harmonic_mixing_rule(w, X):
     '''
