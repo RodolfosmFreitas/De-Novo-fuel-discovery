@@ -42,7 +42,8 @@ def predict_TF(test_x):
     with torch.no_grad(), gpytorch.settings.fast_pred_var():
         # Test points are regularly spaced along [0,1]
         Y_pred = likelihood(model(test_x))
-        
+
+    
     mu_pred = Y_pred.mean * std_TF + mu_TF 
     var_pred = torch.abs(Y_pred.variance * std_TF + mu_TF)
     sigma_pred = torch.sqrt(var_pred)
