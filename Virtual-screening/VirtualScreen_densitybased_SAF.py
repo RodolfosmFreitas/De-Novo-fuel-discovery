@@ -53,10 +53,10 @@ def predict(test_x):
         Y_pred = likelihood(model(test_x))
 
     # Sampling from the posterior
-    f_samples = Y_pred.sample(sample_shape=torch.Size([1000])).detach().cpu().numpy() * std + mu
+    f_samples = Y_pred.sample(sample_shape=torch.Size([1000])) * std + mu
     
-    mu_pred = f_samples.mean(0) 
-    var_pred = Y_pred.var(0)
+    mu_pred = f_samples.mean(0).detach().cpu().numpy() 
+    var_pred = f_samples.var(0).detach().cpu().numpy()
     sigma_pred = torch.sqrt(var_pred)
     
     return mu_pred, sigma_pred
