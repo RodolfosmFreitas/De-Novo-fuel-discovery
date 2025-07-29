@@ -51,7 +51,7 @@ def predict_YSI(test_x):
     f_samples = Y_pred.sample(sample_shape=torch.Size([1000])).detach().cpu().numpy() * std_YSI + mu_YSI 
     
     mu_pred = f_samples.mean(0) 
-    var_pred = Y_pred.var(0)
+    var_pred = f_samples.var(0)
     sigma_pred = np.sqrt(var_pred)
     return mu_pred, sigma_pred
 
