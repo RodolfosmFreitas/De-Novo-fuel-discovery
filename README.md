@@ -1,6 +1,7 @@
 # De Novo fuel composition discovery: an AI-assisted framework for exploring sustainable aviation fuels
 
-![image](https://github.com/user-attachments/assets/f7a86bbc-c154-456a-a38c-5f89e89432ee)
+<img width="7676" height="4267" alt="SAF_Framework" src="https://github.com/user-attachments/assets/b0534efe-79b9-4fbc-b038-1c65adbc2ce3" />
+
 
 **De Novo fuel composition discovery framework.**  AI-assisted framework for exploring SAF blends. The schematic diagram depicts the De Novo fuel design framework for investigating novel SAF blends. It encompasses data curation, establishes a compositional mapping (predictive modelling), and virtual fuel screening.
 
