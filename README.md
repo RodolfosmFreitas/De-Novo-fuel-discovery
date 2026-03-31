@@ -3,7 +3,7 @@
 ![figure1](https://github.com/user-attachments/assets/4c06f787-dbcc-4920-b4b9-3343715e94dd)
 
 
-**AI-guided formulation of sustainable aviation fuels.** 
+**An AI-driven framework for the de novo design and optimisation of sustainable aviation fuels** 
 
 # Abstract
 
