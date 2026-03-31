@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Aug 23 04:59:38 2024
-
 @author: Rodolfo Freitas
 """
 
