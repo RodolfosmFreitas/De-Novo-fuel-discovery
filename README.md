@@ -1,9 +1,8 @@
-# Artificial intelligence in sustainable aviation fuel development
+# An AI-driven framework for the de novo design and optimisation of sustainable aviation fuels
 
 ![figure1](https://github.com/user-attachments/assets/4c06f787-dbcc-4920-b4b9-3343715e94dd)
 
 
-**An AI-driven framework for the de novo design and optimisation of sustainable aviation fuels** 
 
 # Abstract
 
