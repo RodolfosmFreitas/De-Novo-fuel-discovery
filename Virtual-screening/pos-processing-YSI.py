@@ -1,13 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Feb 25 10:18:34 2025
-
-@author: Rodolfo Freitas
-"""
-
-"""
-Created on Fri Aug 23 04:59:38 2024
-
 @author: Rodolfo Freitas
 """
 
